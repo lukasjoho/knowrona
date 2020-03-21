@@ -29,7 +29,7 @@ export default class CreateUsers extends Component {
         }
 
         console.log(user);
-        axios.post("http://localhost:5000/users/add", user)
+        axios.post("https://floating-hamlet-81586.herokuapp.com/users/add", user)
             .then(res => console.log(res.data));
 
         this.setState({

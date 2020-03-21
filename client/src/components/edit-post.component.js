@@ -11,6 +11,7 @@ export default class EditPosts extends Component {
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeUrl = this.onChangeUrl.bind(this);
+        this.onChangeType = this.onChangeType.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -20,6 +21,7 @@ export default class EditPosts extends Component {
             username: "",
             title: "",
             description: "",
+            type:"",
             url: "",
             date: new Date(),
             users: []
@@ -27,12 +29,13 @@ export default class EditPosts extends Component {
     }
 
     componentDidMount(){
-        axios.get("http://localhost:5000/posts/"+this.props.match.params.id)
+        axios.get("https://floating-hamlet-81586.herokuapp.com/posts/"+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
                     title: response.data.title,
                     description: response.data.description,
+                    type: response.data.type,
                     url: response.data.url, 
                     date: new Date(response.data.date)
                 })
@@ -41,7 +44,7 @@ export default class EditPosts extends Component {
                 console.log(error);
             })
 
-        axios.get("http://localhost:5000/users/")
+        axios.get("https://floating-hamlet-81586.herokuapp.com/users/")
         .then(response => {
             if (response.data.length > 0) {
                 this.setState({
@@ -75,6 +78,12 @@ export default class EditPosts extends Component {
         }); 
     }
 
+    onChangeType(e){
+        this.setState({
+            type: e.target.value
+        }); 
+    }
+
     onChangeDate(date){
         this.setState({
             date: date
@@ -88,13 +97,14 @@ export default class EditPosts extends Component {
             username: this.state.username,
             title: this.state.title,
             description: this.state.description,
+            type: this.state.type,
             url: this.state.url,
             date: this.state.date
         }
 
         console.log(post);
 
-        axios.post("http://localhost:5000/posts/update/"+this.props.match.params.id, post)
+        axios.post("https://floating-hamlet-81586.herokuapp.com/posts/update/"+this.props.match.params.id, post)
             .then(res => console.log(res.data));
 
         window.location = "/";
@@ -138,6 +148,25 @@ export default class EditPosts extends Component {
                         className="form-control"
                         value={this.state.description}
                         onChange={this.onChangeDescription}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Type: </label>
+                        <select ref="typeInput"
+                        required
+                        className="form-control"
+                        value={this.state.type}
+                        onChange={this.onChangeType}
+                        >
+                            <option value={"Video"}>Video</option>
+                            <option value={"Blog"}>Blog</option>
+                            <option value={"Dokument"}>Dokument</option>
+                            <option value={"Datenanalyse"}>Datenanalyse</option>
+                            <option value={"Magazin"}>Magazin</option>
+                            <option value={"Artikel"}>Artikel</option>
+                            <option value={"Studie"}>Studie</option>
+                            <option value={"Paper"}>Paper</option>
+
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>Url: </label>

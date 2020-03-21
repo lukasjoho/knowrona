@@ -43,7 +43,7 @@ export default class PostsList extends Component {
     }
 
     componentDidMount(){
-        axios.get("http://localhost:5000/posts/")
+        axios.get("https://floating-hamlet-81586.herokuapp.com/posts/")
             .then(response => {
                 this.setState({posts: response.data})
             })
@@ -55,7 +55,7 @@ export default class PostsList extends Component {
         
     }
     deletePost(id){
-        axios.delete("http://localhost:5000/posts/"+id)
+        axios.delete("https://floating-hamlet-81586.herokuapp.com/posts/"+id)
             .then(res => console.log(res.data));
         this.setState({
             posts: this.state.posts.filter(el => el._id !== id)

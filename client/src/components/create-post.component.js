@@ -29,7 +29,7 @@ export default class CreatePosts extends Component {
     }
 
     componentDidMount(){
-        axios.get("http://localhost:5000/users/")
+        axios.get("https://floating-hamlet-81586.herokuapp.com/users/")
         .then(response => {
             if (response.data.length > 0) {
                 this.setState({
@@ -90,10 +90,10 @@ export default class CreatePosts extends Component {
 
         console.log(post);
 
-        axios.post("http://localhost:5000/posts/add", post)
+        axios.post("https://floating-hamlet-81586.herokuapp.com/posts/add", post)
             .then(res => console.log(res.data));
 
-        window.location = "/";
+        // window.location = "/";
     }
 
     render(){
