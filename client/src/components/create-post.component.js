@@ -23,7 +23,7 @@ export default class CreatePosts extends Component {
             description: "",
             type: "Video",
             url: "",
-            date: new Date(),
+            date: "",
             users: []
         }
     }
@@ -85,7 +85,7 @@ export default class CreatePosts extends Component {
             description: this.state.description,
             type: this.state.type,
             url: this.state.url,
-            date: this.state.date
+            date: new Date()
         }
 
         console.log(post);
@@ -171,10 +171,11 @@ export default class CreatePosts extends Component {
                     <div className="form-group">
                         <label>Date: </label>
                         <div>
-                            <DatePicker
+                            {this.state.date}
+                            {/* {<DatePicker
                             selected={this.state.date}
                             onChange={this.onChangeDate}
-                            />
+                            />} */}
                         </div>
                     </div>
                     <div className="form-group">

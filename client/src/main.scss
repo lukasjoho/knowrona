@@ -41,7 +41,7 @@ p{
     font-family: 'Sen', sans-serif;
     color: rgb(187, 187, 187);
     font-weight: normal;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0;
 }
 
@@ -100,16 +100,29 @@ p{
     .btn{
         margin-bottom: 0;
     }
+    .card .btn{
+        padding: 1rem;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+    }
 }
 
 
 
 
-.modify a{
+.modify {
+font-size: 1.1rem;
+color: grey;
+    a{
     display: flex-end;
     color: grey;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
+}
+
+.link-right{
+    margin: 0  1rem;
+}
 }
 
 .modify a:hover{

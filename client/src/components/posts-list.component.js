@@ -2,12 +2,14 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import styles from "../styles.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
 import axios from "axios";
 
 const Post = props => (
     <div className="card">
-        <h5>{props.post.type}</h5>
+        <h5>{props.post.type} | {props.post.date.substring(8,10)}.{props.post.date.substring(5,7)}: {props.post.date.substring(11,16)} </h5>
         <h4>{props.post.title}</h4>
             <hr/>
         <div className="row">
@@ -16,8 +18,7 @@ const Post = props => (
             
             <div>
             <p class="url">Quelle: {props.post.url}</p>
-            <h5><span className="pre-user">eingestellt von</span> {props.post.username}<span className="pre-user"> am:</span></h5>
-            <p className="date">{props.post.date.substring(0,10)}</p>
+            <h5><span className="pre-user">eingestellt von</span> {props.post.username}</h5>
             </div>
             </div>
             <div className="col-md-4 kr-col">
@@ -25,7 +26,8 @@ const Post = props => (
                     <button className="btn">Get To Know</button>
                 </a>
                 <div class="modify">
-                <Link to={"/edit/"+props.post._id}>Edit</Link> | <a href="#" onClick={() => { props.deletePost(props.post._id) }}>Delete</a>
+                    
+                <Link to={"/edit/"+props.post._id}><FontAwesomeIcon icon={faEdit}/></Link> <span class="link-right">|</span> <a  href="#" onClick={() => { props.deletePost(props.post._id) }}><FontAwesomeIcon icon={faTrash}/></a>
                 </div>
             </div>
         </div>
@@ -49,7 +51,9 @@ export default class PostsList extends Component {
                 console.log(error);
             } )
     }
-
+    deleteAlert(){
+        
+    }
     deletePost(id){
         axios.delete("http://localhost:5000/posts/"+id)
             .then(res => console.log(res.data));
@@ -67,13 +71,14 @@ export default class PostsList extends Component {
         return (
            <div>
                <h3>Posts</h3>
+               {this.postList()}
                <table className="table">
                    <thead className="thead-light">
                        <tr>
                        </tr>
                    </thead>
                    <tbody>
-                       {this.postList()}
+                       
                    </tbody>
                </table>
            </div>
