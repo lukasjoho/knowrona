@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Sen:400,700,800&display=swap");
+
+$color-background: #D2DBDD;
+$color-primary: #152536;
+
+body{
+    background-color: $color-background;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Sen', sans-serif;
+    color: $color-primary;
+}
+
+h3{
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+h4{
+    font-family: 'Sen', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+h5{
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    font-size: 1rem;
+}
+p{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.pre-user{
+    font-family: 'Sen', sans-serif;
+    color: rgb(187, 187, 187);
+    font-weight: normal;
+    font-size: 0.8rem;
+    margin: 0;
+}
+.card{
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    cursor: pointer;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.date{
+    font-family: 'Sen', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0;
+}
+.kr-col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn{
+    font-family: 'Sen', sans-serif;
+    background: $color-primary;
+    color: white;
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: 0.4s ease;
+    margin-bottom: 1.5rem;
+}
+
+.btn:hover{
+    box-shadow: 0 0px 20px 0px rgba(0,0,0,0.6);
+    color: white;
+}
+
+@media (max-width: 768px){
+    .kr-col{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .btn{
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+.modify a{
+    display: flex-end;
+    color: grey;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modify a:hover{
+    color: black;
+}
+
+.url{
+    font-family: 'Sen', sans-serif;
+    color: rgb(61, 61, 61);
+    font-weight: normal;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+
+.nav-link{
+    display: flex;
+}
+.icon{
+    height: 1.2rem;
+    color: white;
+    margin: 0.1rem 0.5rem 0 1rem;
+}
+.navbar{
+    background: #152536;
+}
+
+.nav-text{
+    color: white;
+    font-family: 'Sen', sans-serif;
+    font-weight: 700;
+
+}
+
+.navbar-brand{
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    font-size: 1.25rem;
+    opacity: 1;
+}
+
+
+
+.page-footer{
+    border-top: 4px solid $color-primary;
+    h5{ 
+        color: $color-primary;
+    }
+    .footer-copyright{
+        background: $color-primary;
+        color: white;
+        a{
+            color: white;
+        }
+    }
+}
+
+
+
+
