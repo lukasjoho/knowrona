@@ -21,7 +21,7 @@ export default class CreatePosts extends Component {
             username: "",
             title: "",
             description: "",
-            types: ["Video", "Zeitungsartikel", "Dokument", "Magazin", "Blogeintrag"],
+            type: "Video",
             url: "",
             date: new Date(),
             users: []
@@ -143,14 +143,21 @@ export default class CreatePosts extends Component {
                         value={this.state.type}
                         onChange={this.onChangeType}
                         >
-                            {
+                            <option value={"Video"}>Video</option>
+                            <option value={"Blog"}>Blog</option>
+                            <option value={"Blog"}>Dokument</option>
+                            <option value={"Blog"}>Datenanalyse</option>
+                            <option value={"Blog"}>Magazin</option>
+                            
+
+                            {/* {
                             this.state.types.map(function(type){
                                 return <option 
                                 key={type}
                                 value={type}>{type}
                                 </option>;
                             })
-                        }   
+                        }    */}
                         </select>
                     </div>
                     <div className="form-group">
