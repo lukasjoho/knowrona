@@ -59,7 +59,7 @@ export default class PostsList extends Component {
     }
 
     postList(){
-        return this.state.posts.map(currentpost => {
+        return this.state.posts.reverse().map(currentpost => {
             return <Post post={currentpost} deletePost={this.deletePost} key={currentpost._id}/>;
         })
     }
