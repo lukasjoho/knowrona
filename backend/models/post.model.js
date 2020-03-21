@@ -4,6 +4,7 @@ const postSchema = new Schema({
     username: {type: String, required: true},
     title: {type: String, required: true},
     description: { type: String, required: true},
+    type: {type: String, required:  true},
     url: {type: String, required: true},
     date: {type: Date, required: true},
     }, {

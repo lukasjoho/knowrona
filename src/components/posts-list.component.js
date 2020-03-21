@@ -1,18 +1,35 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import styles from "../styles.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
 
 const Post = props => (
-    <tr>
-        <td>{props.post.username}</td>
-        <td>{props.post.title}</td>
-        <td>{props.post.description}</td>
-        <td>{props.post.url}</td>
-        <td>{props.post.date.substring(0,10)}</td>
-        <td>
-            <Link to={"/edit/"+props.post._id}>edit</Link> | <a href="#" onClick={() => { props.deletePost(props.post._id) }}>Delete</a>
-        </td>
-    </tr>
+    <div className="card">
+        <h5>{props.post.type}</h5>
+        <h4>{props.post.title}</h4>
+            <hr/>
+        <div className="row">
+            <div className="col-md-8 left">
+            <p>{props.post.description}</p>
+            
+            <div>
+            <p class="url">Quelle: {props.post.url}</p>
+            <h5><span className="pre-user">eingestellt von</span> {props.post.username}<span className="pre-user"> am:</span></h5>
+            <p className="date">{props.post.date.substring(0,10)}</p>
+            </div>
+            </div>
+            <div className="col-md-4 kr-col">
+                <a href={props.post.url} target="_blank">
+                    <button className="btn">Get To Know</button>
+                </a>
+                <div class="modify">
+                <Link to={"/edit/"+props.post._id}>Edit</Link> | <a href="#" onClick={() => { props.deletePost(props.post._id) }}>Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 )
 
 export default class PostsList extends Component {
@@ -53,12 +70,6 @@ export default class PostsList extends Component {
                <table className="table">
                    <thead className="thead-light">
                        <tr>
-                           <th>Username</th>
-                           <th>Title</th>
-                           <th>Description</th>
-                           <th>Url</th>
-                           <th>Date</th>
-                           <th>Actions</th>
                        </tr>
                    </thead>
                    <tbody>

@@ -10,6 +10,7 @@ export default class CreatePosts extends Component {
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeType = this.onChangeType.bind(this);
         this.onChangeUrl = this.onChangeUrl.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -20,6 +21,7 @@ export default class CreatePosts extends Component {
             username: "",
             title: "",
             description: "",
+            types: ["Video", "Zeitungsartikel", "Dokument", "Magazin", "Blogeintrag"],
             url: "",
             date: new Date(),
             users: []
@@ -56,6 +58,12 @@ export default class CreatePosts extends Component {
         }); 
     }
 
+    onChangeType(e){
+        this.setState({
+            type: e.target.value
+        }); 
+    }
+
     onChangeUrl(e){
         this.setState({
             url: e.target.value
@@ -75,6 +83,7 @@ export default class CreatePosts extends Component {
             username: this.state.username,
             title: this.state.title,
             description: this.state.description,
+            type: this.state.type,
             url: this.state.url,
             date: this.state.date
         }
@@ -125,6 +134,24 @@ export default class CreatePosts extends Component {
                         className="form-control"
                         value={this.state.description}
                         onChange={this.onChangeDescription}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Type: </label>
+                        <select ref="typeInput"
+                        required
+                        className="form-control"
+                        value={this.state.type}
+                        onChange={this.onChangeType}
+                        >
+                            {
+                            this.state.types.map(function(type){
+                                return <option 
+                                key={type}
+                                value={type}>{type}
+                                </option>;
+                            })
+                        }   
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>Url: </label>

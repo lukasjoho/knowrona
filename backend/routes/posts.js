@@ -11,6 +11,7 @@ router.route("/add").post((req, res) => {
     const username = req.body.username;
     const title = req.body.title;
     const description = req.body.description;
+    const type = req.body.type;
     const url = req.body.url;
     const date = Date.parse(req.body.date);
 
@@ -18,6 +19,7 @@ router.route("/add").post((req, res) => {
         username,
         title,
         description,
+        type,
         url,
         date,
     });
@@ -45,6 +47,7 @@ router.route("/update/:id").post((req, res) => {
             post.username = req.body.username;
             post.title = req.body.title;
             post.description = req.body.description;
+            post.type = req.body.type;
             post.url = req.body.url;
             post.date = Date.parse(req.body.date);
 
