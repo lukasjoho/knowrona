@@ -157,7 +157,7 @@ export default class EditPosts extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Edit Post" className="btn btn-primary"/>
+                        <input type="submit" value="Edit Post" className="btn"/>
                     </div>
                 </form>
             </div>

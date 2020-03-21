@@ -171,7 +171,7 @@ export default class CreatePosts extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create Post" className="btn btn-primary"/>
+                        <input type="submit" value="Create Post" className="btn"/>
                     </div>
                 </form>
             </div>

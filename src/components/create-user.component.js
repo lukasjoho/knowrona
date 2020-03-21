@@ -42,7 +42,7 @@ export default class CreateUsers extends Component {
             <div>
                 <h3>Create New User</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className="formgroup">
+                    <div className="form-group">
                         <label>Username: </label>
                         <input 
                         type="text"
@@ -53,7 +53,7 @@ export default class CreateUsers extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-primary"/>
+                        <input type="submit" value="Create User" className="btn"/>
                     </div>
                 </form>
             </div>
