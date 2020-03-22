@@ -168,7 +168,8 @@ export default class EditPosts extends Component {
                         onChange={this.onChangeType}
                         >
                             <option value={"Video"}>Video</option>
-                            <option value={"Blog"}>Blog</option>
+                            <option value={"Tweet"}>Tweet</option>
+                            <option value={"Blogeintrag"}>Blog</option>
                             <option value={"Dokument"}>Dokument</option>
                             <option value={"Datenanalyse"}>Datenanalyse</option>
                             <option value={"Magazin"}>Magazin</option>
