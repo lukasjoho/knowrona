@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 
 export default class EditPosts extends Component {
     constructor(props){
@@ -24,7 +25,8 @@ export default class EditPosts extends Component {
             type:"",
             url: "",
             date: new Date(),
-            users: []
+            users: [],
+            isSubmitted: false
         }
     }
 
@@ -105,12 +107,22 @@ export default class EditPosts extends Component {
         console.log(post);
 
         axios.post("https://floating-hamlet-81586.herokuapp.com/posts/update/"+this.props.match.params.id, post)
-            .then(res => console.log(res.data));
+            .then(() => {
+                this.setState({isSubmitted: true});
+            });
 
-        window.location = "/";
+        // window.location = "/";
     }
 
     render(){
+        const isSubmitted = this.state.isSubmitted;
+        let message;
+        if(isSubmitted){
+            message = <Link className="alert-post" to="/"><div class="alert alert-success " role="alert">You successfully edited the post!</div></Link>;
+            setTimeout(() => { this.setState({isSubmitted: false}); }, 3000);
+        } else {
+            message = <div></div>;
+        }
         return (
             <div>
                 <h3>Edit Post</h3>
@@ -176,7 +188,7 @@ export default class EditPosts extends Component {
                         value={this.state.url}
                         onChange={this.onChangeUrl}/>
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Date: </label>
                         <div>
                             <DatePicker
@@ -184,9 +196,12 @@ export default class EditPosts extends Component {
                             onChange={this.onChangeDate}
                             />
                         </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <input type="submit" value="Edit Post" className="btn"/>
+                    </div>
+                    <div className="form-group">
+                        {message}
                     </div>
                 </form>
             </div>

@@ -17,8 +17,8 @@ const Post = props => (
             <p>{props.post.description}</p>
             
             <div>
-            <p class="url">Quelle: {props.post.url}</p>
-            <h5><span className="pre-user">eingestellt von</span> {props.post.username}</h5>
+            <p class="url">Origin: {props.post.url}</p>
+            <h5><span className="pre-user">Posted by</span> {props.post.username}</h5>
             </div>
             </div>
             <div className="col-md-4 kr-col">

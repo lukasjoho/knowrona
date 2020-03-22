@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
+import { Link } from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreatePosts extends Component {
@@ -24,7 +25,8 @@ export default class CreatePosts extends Component {
             type: "Video",
             url: "",
             date: "",
-            users: []
+            users: [],
+            isSubmitted: false
         }
     }
 
@@ -38,6 +40,10 @@ export default class CreatePosts extends Component {
                 })
             }
         })
+    }
+
+    handleSubmission(){
+        // this.setState({isSubmitted: true});
     }
 
     onChangeUsername(e){
@@ -91,12 +97,23 @@ export default class CreatePosts extends Component {
         console.log(post);
 
         axios.post("https://floating-hamlet-81586.herokuapp.com/posts/add", post)
-            .then(res => console.log(res.data));
-
+            // .then(res => console.log(res.data));
+            .then(() => {
+                this.setState({isSubmitted: true});
+            });
+        
         // window.location = "/";
     }
 
     render(){
+        const isSubmitted = this.state.isSubmitted;
+        let message;
+        if(isSubmitted){
+            message = <Link className="alert-post" to="/"><div class="alert alert-success " role="alert">You successfully published a post!</div></Link>;
+            setTimeout(() => { this.setState({isSubmitted: false}); }, 3000);
+        } else {
+            message = <div></div>;
+        }
         return (
             <div>
                 <h3>Create New Post</h3>
@@ -145,9 +162,12 @@ export default class CreatePosts extends Component {
                         >
                             <option value={"Video"}>Video</option>
                             <option value={"Blog"}>Blog</option>
-                            <option value={"Blog"}>Dokument</option>
-                            <option value={"Blog"}>Datenanalyse</option>
-                            <option value={"Blog"}>Magazin</option>
+                            <option value={"Dokument"}>Dokument</option>
+                            <option value={"Datenanalyse"}>Datenanalyse</option>
+                            <option value={"Magazin"}>Magazin</option>
+                            <option value={"Artikel"}>Artikel</option>
+                            <option value={"Studie"}>Studie</option>
+                            <option value={"Paper"}>Paper</option>
                             
 
                             {/* {
@@ -168,19 +188,23 @@ export default class CreatePosts extends Component {
                         value={this.state.url}
                         onChange={this.onChangeUrl}/>
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label>Date: </label>
                         <div>
                             {this.state.date}
-                            {/* {<DatePicker
+                            {<DatePicker
                             selected={this.state.date}
                             onChange={this.onChangeDate}
-                            />} */}
+                            />}
                         </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <input type="submit" value="Create Post" className="btn"/>
                     </div>
+                    <div className="form-group">
+                        {message}
+                    </div>
+
                 </form>
             </div>
         )

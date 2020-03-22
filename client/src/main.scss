@@ -2,6 +2,7 @@
 
 $color-background: #D2DBDD;
 $color-primary: #152536;
+$color-alternative: #101a2c;
 
 body{
     background-color: $color-background;
@@ -15,6 +16,13 @@ a{
 h1, h2, h3, h4, h5, label{
     font-family: 'Sen', sans-serif;
     color: $color-primary;
+}
+
+h1{
+    color: white;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0;
 }
 
 h3{
@@ -154,12 +162,11 @@ color: grey;
     color: white;
     font-family: 'Sen', sans-serif;
     font-weight: 700;
-
 }
 
 .navbar-brand{
-    text-transform: uppercase;
-    font-weight: 700;
+    text-transform: normal;
+    font-weight: 800;
     letter-spacing: 0.1rem;
     font-size: 1.25rem;
     opacity: 1;
@@ -171,10 +178,10 @@ color: grey;
 
 @media (max-width: 768px){
     .navbar-collapse{
-        justify-content: flex-start;
+    justify-content: flex-start;
     }
-
 }
+
 
 
 
@@ -187,6 +194,8 @@ color: grey;
         color: $color-primary;
     }
     .footer-copyright{
+        font-family: 'Sen', sans-serif;
+        font-weight: bold;
         background: $color-primary;
         color: white;
         a{
@@ -215,6 +224,96 @@ color: grey;
     box-shadow: 0px 15px 10px -15px rgba(0,0,0,0.2);
 }
 
+.alert-post:hover{
+    color: inherit;
+    text-decoration: none;
+}
+
+.flexer{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.my-navbar{
+    width: 100vw;
+    height: 100px;
+    background: $color-primary;
+    
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.brand{
+    width: 200px;
+}
 
 
+@media (max-width: 768px){
+    .brand{
+        width: 30%;
+        opacity: 0.8;
+    }
+    .flexer{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
 
+.titles{
+    text-align: center;
+}
+
+.knowrona{
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introcard{
+    margin: 2rem 0 3rem 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    background: #4B79A1;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 20px;
+    box-shadow: 0px 60px 30px -40px rgba(0, 0, 0, 0.4);
+    h1{
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 768px){
+    .introcard{
+        height: 40vh;
+        h1{
+            font-size: 1.2rem;
+        }
+        .centered{
+            height: 200px;
+        }
+    }
+}
+
+.centered{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    .btn{
+        align-self: center;
+        padding: 1.5rem 1.2rem;
+    }
+}
