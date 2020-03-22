@@ -257,6 +257,7 @@ color: grey;
 ul{
     display: flex;
     margin: 0;
+    margin-bottom: 1rem;
     padding: 0;
 }
 .brand{
@@ -294,7 +295,7 @@ ul{
     justify-content: center;
     align-items: center;
     height: 50vh;
-    width: 90%;
+    width: 94%;
     background: #4B79A1;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -309,13 +310,13 @@ background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, F
 
 @media(max-width: 768px){
     .introcard{
-        height: 40vh;
+        height: 60vh;
         h1{
             font-size: 1.55rem;
         }
         .centered{
-            height: 180px;
-            margin: 0 4rem;
+            height: 200px;
+            margin: 0 3rem;
         }
         .btn{
            
