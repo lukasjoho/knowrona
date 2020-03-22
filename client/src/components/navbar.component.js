@@ -11,10 +11,10 @@ export default class Navbar extends Component {
     return (
       <nav class="my-navbar">
       <div className="container flexer">
-        <div className="brand"><Link to="/knowrona"><img src={LogoWhite} alt="" width="100%"/></Link></div>
+        <div className="brand"><Link to="/"><img src={LogoWhite} alt="" width="100%"/></Link></div>
         <ul className="my-nav">
           <li className="my-item">
-          <Link to="/" className="nav-link"><FontAwesomeIcon class="icon" icon={faThList}/><span class="nav-text">Posts</span></Link>
+          <Link to="/list" className="nav-link"><FontAwesomeIcon class="icon" icon={faThList}/><span class="nav-text">Posts</span></Link>
           </li>
           <li className="my-item">
           <Link to="/create" className="nav-link"><FontAwesomeIcon  class="icon" icon={faFileUpload}/><span class="nav-text"><span className="hide">Create Post</span><span className="show">New</span></span></Link>
