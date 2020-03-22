@@ -311,6 +311,20 @@ background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, F
     }
 }
 
+.centered{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    .btn{
+        align-self: center;
+        padding: 1.5rem 1.2rem;
+        margin-bottom: 0;
+        box-shadow: 0px 30px 15px -20px rgba(0, 0, 0, 0.6);
+    }
+} 
 
 @media(max-width: 768px){
     .introcard{
@@ -324,26 +338,13 @@ background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, F
             margin: 0 3rem;
         }
         .btn{
-           
+           margin-bottom: 25%;
         }
     }
 }
 
 
-.centered{
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    width: 100%;
-    justify-content: space-between;
-    text-align: center;
-    .btn{
-        align-self: center;
-        padding: 1.5rem 1.2rem;
-        margin-bottom: 25%;
-        box-shadow: 0px 30px 15px -20px rgba(0, 0, 0, 0.6);
-    }
-} 
+
 
 
 
