@@ -18,8 +18,8 @@ function App() {
     <Navbar/>
     <div className="container">
     <br/>
-    <Route path="/knowrona" exact component={Knowrona}/>
-    <Route path="/" exact component={PostsList}/>
+    <Route path="/" exact component={Knowrona}/>
+    <Route path="/list" exact component={PostsList}/>
     <Route path="/edit/:id" exact component={EditPost}/>
     <Route path="/create" exact component={CreatePost}/>
     <Route path="/user" exact component={CreateUser}/>
