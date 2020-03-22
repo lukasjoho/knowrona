@@ -144,10 +144,13 @@ export default class CreatePosts extends Component {
                         onChange={this.onChangeType}
                         >
                             <option value={"Video"}>Video</option>
-                            <option value={"Blog"}>Blog</option>
-                            <option value={"Blog"}>Dokument</option>
-                            <option value={"Blog"}>Datenanalyse</option>
-                            <option value={"Blog"}>Magazin</option>
+                            <option value={"Blog"}>Blog</option>	                            <option value={"Blog"}>Blog</option>
+                            <option value={"Blog"}>Dokument</option>	                            <option value={"Dokument"}>Dokument</option>
+                            <option value={"Blog"}>Datenanalyse</option>	                            <option value={"Datenanalyse"}>Datenanalyse</option>
+                            <option value={"Blog"}>Magazin</option>	                            <option value={"Magazin"}>Magazin</option>
+                            <option value={"Artikel"}>Artikel</option>
+                            <option value={"Studie"}>Studie</option>
+                            <option value={"Paper"}>Paper</option>
                             
 
                             {/* {
