@@ -164,6 +164,9 @@ color: grey;
 
 }
 
+.show{
+    display: none;
+}
 .navbar-brand{
     text-transform: normal;
     font-weight: 800;
@@ -179,6 +182,14 @@ color: grey;
 @media (max-width: 768px){
     .navbar-collapse{
         justify-content: flex-start;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .show{
+        display: block;
     }
 
 }
@@ -249,18 +260,19 @@ ul{
     padding: 0;
 }
 .brand{
-    width: 200px;
+    width: 220px;
 }
 
 
 @media (max-width: 768px){
     .brand{
-        width: 30%;
+        margin-top: 1rem;
+        width: 50%;
         opacity: 0.8;
     }
     .flexer{
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
 }
 
@@ -277,12 +289,12 @@ ul{
 
 
 .introcard{
-    margin: 2rem 0 3rem 0 ;
+    margin: 2rem auto 3rem auto ;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
-    width: 100%;
+    width: 90%;
     background: #4B79A1;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -299,10 +311,14 @@ background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, F
     .introcard{
         height: 40vh;
         h1{
-            font-size: 1.2rem;
+            font-size: 1.55rem;
         }
         .centered{
-            height: 200px;
+            height: 180px;
+            margin: 0 4rem;
+        }
+        .btn{
+           
         }
     }
 }

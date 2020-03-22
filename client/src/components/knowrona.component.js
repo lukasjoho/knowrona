@@ -27,7 +27,7 @@ export default class Knowrona extends Component {
         <div className="introcard">
             <div className="centered">
             <h1>{textThatChanges}</h1>
-            <Link to="/"><button className="btn">Now go get yourself some Covid Understanding!</button></Link>
+            <Link to="/"><button className="btn">Now go get yourself some Covid understanding!</button></Link>
             </div>
         </div>
     )
