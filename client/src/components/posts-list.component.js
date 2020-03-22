@@ -6,7 +6,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 import axios from "axios";
-
 const Post = props => (
     <div className="card">
         <h5>{props.post.type} | {props.post.date.substring(8,10)}.{props.post.date.substring(5,7)}: {props.post.date.substring(11,16)} </h5>
