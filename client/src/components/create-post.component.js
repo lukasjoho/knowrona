@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 
 export default class CreatePosts extends Component {
     constructor(props){
@@ -24,7 +25,8 @@ export default class CreatePosts extends Component {
             type: "Video",
             url: "",
             date: "",
-            users: []
+            users: [],
+            isSubmitted: false
         }
     }
 
@@ -91,12 +93,22 @@ export default class CreatePosts extends Component {
         console.log(post);
 
         axios.post("https://floating-hamlet-81586.herokuapp.com/posts/add", post)
-            .then(res => console.log(res.data));
+            .then(() => {
+                this.setState({isSubmitted: true});
+            });
 
         // window.location = "/";
     }
 
     render(){
+        const isSubmitted = this.state.isSubmitted;
+        let message;
+        if(isSubmitted){
+            message = <Link className="alert-post" to="/"><div class="alert alert-success " role="alert">You successfully published a post!</div></Link>;
+            setTimeout(() => { this.setState({isSubmitted: false}); }, 3000);
+        } else {
+            message = <div></div>;
+        }
         return (
             <div>
                 <h3>Create New Post</h3>
@@ -183,6 +195,9 @@ export default class CreatePosts extends Component {
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Create Post" className="btn"/>
+                    </div>
+                    <div className="form-group">
+                        {message}
                     </div>
                 </form>
             </div>
